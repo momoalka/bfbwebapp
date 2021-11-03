@@ -39,9 +39,19 @@ layout = html.Div([
     [Input(component_id='genre-dropdown', component_property='value'),
      Input(component_id='sales-dropdown', component_property='value')]
 )
+
+
+
 def display_value(genre_chosen, sales_chosen):
+
+
+
     dfv_fltrd = dfv[dfv['Genre'] == genre_chosen]
     dfv_fltrd = dfv_fltrd.nlargest(10, sales_chosen)
     fig = px.bar(dfv_fltrd, x='Video Game', y=sales_chosen, color='Platform')
     fig = fig.update_yaxes(tickprefix="$", ticksuffix="M")
+
+
+
+
     return fig
